@@ -49,7 +49,7 @@ PROMPT="
 %{$fg[white]%}at \
 %{$green%}$(box_name) \
 %{$fg[white]%}in \
-%{$yellow%}${current_dir}%{$reset_color%}\
+%{$yellow%}%~%{$reset_color%}\
 ${hg_info}\
 ${git_info} \
 %{$fg[white]%}[%*]
@@ -62,7 +62,7 @@ PROMPT="
 %{$fg[white]%}at \
 %{$green%}$(box_name) \
 %{$fg[white]%}in \
-%{$yellow%}${current_dir}%{$reset_color%}\
+%{$yellow%}%~%{$reset_color%}\
 ${hg_info}\
 ${git_info} \
 %{$fg[white]%}[%*]
