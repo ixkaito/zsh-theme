@@ -6,8 +6,6 @@ kite_box_name() {
 # Git info
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[white]%}on %{$fg[cyan]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
-ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[magenta]%}●"
-ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg[green]%}●"
 
 #
 # Git status
@@ -96,6 +94,8 @@ kite_git_status() {
 
   if [[ -n $git_status ]]; then
 		echo "%{$fg[magenta]%}[$git_status] "
+	else
+		echo "%{$fg[green]%}● "
   fi
 }
 
