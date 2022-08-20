@@ -32,7 +32,7 @@ node_info() {
 
   [[ -z $node_version ]] && return
 
-	echo "%{$fg[green]%}⬢ ${node_version}"
+	echo "%{$fg[white]%}via %{$fg[green]%}⬢ ${node_version}"
 }
 
 # Prompt format: \n # USER at MACHINE in DIRECTORY on git:BRANCH STATE [TIME] \n $
