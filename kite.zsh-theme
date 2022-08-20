@@ -1,23 +1,23 @@
-local cyan="$fg[cyan]"
-local magenta="$fg[magenta]"
-local yellow="$fg[yellow]"
-local red="$fg[red]"
-local green="$fg[green]"
+# local cyan="$fg[cyan]"
+# local magenta="$fg[magenta]"
+# local yellow="$fg[yellow]"
+# local red="$fg[red]"
+# local green="$fg[green]"
 local purple="$fg[blue]"
 
 # VCS
 KITE_VCS_PROMPT_PREFIX1=" %{$fg[white]%}on%{$reset_color%} "
-KITE_VCS_PROMPT_PREFIX2="%{$cyan%}"
+KITE_VCS_PROMPT_PREFIX2="%{$fg[cyan]%}"
 # KITE_VCS_PROMPT_SUFFIX="%{$reset_color%}"
-# KITE_VCS_PROMPT_DIRTY=" %{$magenta%}●"
-# KITE_VCS_PROMPT_CLEAN=" %{$green%}●"
+# KITE_VCS_PROMPT_DIRTY=" %{$fg[magenta]%}●"
+# KITE_VCS_PROMPT_CLEAN=" %{$fg[green]%}●"
 
 # Git info
 local git_info='$(git_prompt_info)'
 ZSH_THEME_GIT_PROMPT_PREFIX="${KITE_VCS_PROMPT_PREFIX1}${KITE_VCS_PROMPT_PREFIX2}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY=" %{$magenta%}●"
-ZSH_THEME_GIT_PROMPT_CLEAN=" %{$green%}●"
+ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[magenta]%}●"
+ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg[green]%}●"
 
 # Machine name.
 function box_name {
@@ -40,29 +40,29 @@ kite_hg_prompt_info() {
 	fi
 }
 
-local exit_code="%(?,,C:%{$red%}%?%{$reset_color%})"
+local exit_code="%(?,,C:%{$fg[red]%}%?%{$reset_color%})"
 
 # Prompt format: \n # USER at MACHINE in DIRECTORY on git:BRANCH STATE [TIME] \n $
-PROMPT="%{$purple%}#%{$reset_color%} \
-%{$cyan%}%n \
+PROMPT="%{$purple%}%{$reset_color%} \
+%{$fg[cyan]%}%n \
 %{$fg[white]%}at \
-%{$green%}$(box_name) \
+%{$fg[green]%}$(box_name) \
 %{$fg[white]%}in \
-%{$yellow%}%~%{$reset_color%}\
+%{$fg[yellow]%}%~%{$reset_color%}\
 ${hg_info}\
 ${git_info} \
 %{$fg[white]%}[%*]
-%{$magenta%}$ %{$reset_color%}"
+%{$fg[magenta]%}$ %{$reset_color%}"
 
 if [[ "$USER" == "root" ]]; then
 PROMPT="%{$purple%}#%{$reset_color%} \
-%{$bg[yellow]%}%{$cyan%}%n%{$reset_color%} \
+%{$bg[yellow]%}%{$fg[cyan]%}%n%{$reset_color%} \
 %{$fg[white]%}at \
-%{$green%}$(box_name) \
+%{$fg[green]%}$(box_name) \
 %{$fg[white]%}in \
-%{$yellow%}%~%{$reset_color%}\
+%{$fg[yellow]%}%~%{$reset_color%}\
 ${hg_info}\
 ${git_info} \
 %{$fg[white]%}[%*]
-%{$magenta%}$ %{$reset_color%}"
+%{$fg[magenta]%}$ %{$reset_color%}"
 fi
