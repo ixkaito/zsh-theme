@@ -114,7 +114,8 @@ kite_node_info() {
 }
 
 # Prompt format: \n # USER at MACHINE in DIRECTORY on GIT_BRANCH STATE via NODE [TIME] \n $
-PROMPT="%{$fg[white]%} %{$fg[cyan]%}%n \
+PROMPT="
+%{$fg[white]%} %{$fg[cyan]%}%n \
 %{$fg[white]%}at %{$fg[green]%}$(kite_box_name) \
 %{$fg[white]%}in %{$fg[yellow]%}%~%{$reset_color%} \
 $(git_prompt_info)\
