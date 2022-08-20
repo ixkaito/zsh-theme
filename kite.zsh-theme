@@ -29,3 +29,6 @@ $(git_prompt_info)\
 $(kite_node_info)\
 %{$fg[white]%}[%*]
 %{$fg[magenta]%}$ %{$reset_color%}"
+
+unset -f kite_box_name
+unset -f kite_node_info
