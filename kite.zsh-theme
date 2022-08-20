@@ -5,7 +5,7 @@ box_name() {
 
 # Git info
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[white]%}on %{$fg[cyan]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[magenta]%}●"
 ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg[green]%}●"
 
@@ -25,7 +25,7 @@ node_info() {
 PROMPT="%{$fg[white]%} %{$fg[cyan]%}%n \
 %{$fg[white]%}at %{$fg[green]%}$(box_name) \
 %{$fg[white]%}in %{$fg[yellow]%}%~%{$reset_color%} \
-$(git_prompt_info) \
+$(git_prompt_info)\
 $(node_info)\
 %{$fg[white]%}[%*]
 %{$fg[magenta]%}$ %{$reset_color%}"
