@@ -43,26 +43,10 @@ kite_hg_prompt_info() {
 local exit_code="%(?,,C:%{$fg[red]%}%?%{$reset_color%})"
 
 # Prompt format: \n # USER at MACHINE in DIRECTORY on git:BRANCH STATE [TIME] \n $
-PROMPT="%{$purple%}%{$reset_color%} \
-%{$fg[cyan]%}%n \
-%{$fg[white]%}at \
-%{$fg[green]%}$(box_name) \
-%{$fg[white]%}in \
-%{$fg[yellow]%}%~%{$reset_color%}\
+PROMPT="%{$fg[white]%} %{$fg[cyan]%}%n \
+%{$fg[white]%}at %{$fg[green]%}$(box_name) \
+%{$fg[white]%}in %{$fg[yellow]%}%~%{$reset_color%}\
 ${hg_info}\
 ${git_info} \
 %{$fg[white]%}[%*]
 %{$fg[magenta]%}$ %{$reset_color%}"
-
-if [[ "$USER" == "root" ]]; then
-PROMPT="%{$purple%}#%{$reset_color%} \
-%{$bg[yellow]%}%{$fg[cyan]%}%n%{$reset_color%} \
-%{$fg[white]%}at \
-%{$fg[green]%}$(box_name) \
-%{$fg[white]%}in \
-%{$fg[yellow]%}%~%{$reset_color%}\
-${hg_info}\
-${git_info} \
-%{$fg[white]%}[%*]
-%{$fg[magenta]%}$ %{$reset_color%}"
-fi
