@@ -12,33 +12,18 @@ ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg[green]%}●"
 #
 # Git status
 #
-
-# ------------------------------------------------------------------------------
-# Configuration
-# ------------------------------------------------------------------------------
-
-local kite_git_status_untracked="?"
-local kite_git_status_added="+"
-local kite_git_status_modified="!"
-local kite_git_status_renamed="»"
-local kite_git_status_deleted="✘"
-local kite_git_status_stashed="$"
-local kite_git_status_unmerged="="
-local kite_git_status_ahead="⇡"
-local kite_git_status_behind="⇣"
-local kite_git_status_diverged="⇕"
-
-# ------------------------------------------------------------------------------
-# Section
-# ------------------------------------------------------------------------------
-
-# We used to depend on OMZ git library,
-# But it doesn't handle many of the status indicator combinations.
-# Also, It's hard to maintain external dependency.
-# See PR #147 at https://git.io/vQkkB
-# See git help status to know more about status formats
 kite_git_status() {
   local INDEX git_status=""
+	local kite_git_status_untracked="?"
+	local kite_git_status_added="+"
+	local kite_git_status_modified="!"
+	local kite_git_status_renamed="»"
+	local kite_git_status_deleted="✘"
+	local kite_git_status_stashed="$"
+	local kite_git_status_unmerged="="
+	local kite_git_status_ahead="⇡"
+	local kite_git_status_behind="⇣"
+	local kite_git_status_diverged="⇕"
 
   INDEX=$(command git status --porcelain -b 2> /dev/null)
 
