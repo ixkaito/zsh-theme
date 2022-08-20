@@ -94,9 +94,9 @@ kite_git_status() {
     [[ "$is_behind" == true ]] && git_status="$kite_git_status_behind$git_status"
   fi
 
-  # if [[ -n $git_status ]]; then
-		echo "%{$fg[green]%}[$git_status] "
-  # fi
+  if [[ -n $git_status ]]; then
+		echo "%{$fg[magenta]%}[$git_status] "
+  fi
 }
 
 # Node.js version
@@ -122,5 +122,5 @@ $(kite_node_info)\
 %{$fg[magenta]%}$ %{$reset_color%}"
 
 unset -f kite_box_name
-# unset -f kite_git_status
+unset -f kite_git_status
 unset -f kite_node_info
