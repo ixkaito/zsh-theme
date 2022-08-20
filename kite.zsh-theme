@@ -137,5 +137,5 @@ $(kite_node_info)\
 %{$fg[magenta]%}$ %{$reset_color%}"
 
 unset -f kite_box_name
-unset -f kite_git_status
+# unset -f kite_git_status
 unset -f kite_node_info
