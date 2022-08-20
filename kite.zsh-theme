@@ -12,7 +12,6 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 #
 # Git status
 #
-local git_status=$(kite_git_status)
 kite_git_status() {
   local INDEX git_status=""
 	local kite_git_status_untracked="?"
@@ -119,10 +118,12 @@ PROMPT="
 %{$fg[white]%} %{$fg[cyan]%}%n \
 %{$fg[white]%}at %{$fg[green]%}$(kite_box_name) \
 %{$fg[white]%}in %{$fg[yellow]%}%~%{$reset_color%} \
-$git_status\
+$(git_prompt_info)\
+$(kite_git_status)\
 $(kite_node_info)\
 %{$fg[white]%}[%*]
 %{$fg[magenta]%}$ %{$reset_color%}"
 
 unset -f kite_box_name
+unset -f kite_git_status
 unset -f kite_node_info
