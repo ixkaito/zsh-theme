@@ -18,7 +18,7 @@ node_info() {
 
   [[ -z $node_version ]] && return
 
-	echo "%{$fg[white]%}via %{$fg[green]%}⬢ ${node_version}"
+	echo "%{$fg[white]%}via %{$fg[green]%}⬢ ${node_version} "
 }
 
 # Prompt format: \n # USER at MACHINE in DIRECTORY on GIT_BRANCH STATE via NODE [TIME] \n $
@@ -26,6 +26,6 @@ PROMPT="%{$fg[white]%} %{$fg[cyan]%}%n \
 %{$fg[white]%}at %{$fg[green]%}$(box_name) \
 %{$fg[white]%}in %{$fg[yellow]%}%~%{$reset_color%} \
 $(git_prompt_info) \
-$(node_info) \
+$(node_info)\
 %{$fg[white]%}[%*]
 %{$fg[magenta]%}$ %{$reset_color%}"
