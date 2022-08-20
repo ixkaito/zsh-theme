@@ -44,25 +44,25 @@ local exit_code="%(?,,C:%{$red%}%?%{$reset_color%})"
 
 # Prompt format: \n # USER at MACHINE in DIRECTORY on git:BRANCH STATE [TIME] \n $
 PROMPT="%{$purple%}#%{$reset_color%} \
-	%{$cyan%}%n \
-	%{$fg[white]%}at \
-	%{$green%}$(box_name) \
-	%{$fg[white]%}in \
-	%{$yellow%}%~%{$reset_color%}\
-	${hg_info}\
-	${git_info} \
-	%{$fg[white]%}[%*]
-	%{$magenta%}$ %{$reset_color%}"
+%{$cyan%}%n \
+%{$fg[white]%}at \
+%{$green%}$(box_name) \
+%{$fg[white]%}in \
+%{$yellow%}%~%{$reset_color%}\
+${hg_info}\
+${git_info} \
+%{$fg[white]%}[%*]
+%{$magenta%}$ %{$reset_color%}"
 
 if [[ "$USER" == "root" ]]; then
-	PROMPT="%{$purple%}#%{$reset_color%} \
-		%{$bg[yellow]%}%{$cyan%}%n%{$reset_color%} \
-		%{$fg[white]%}at \
-		%{$green%}$(box_name) \
-		%{$fg[white]%}in \
-		%{$yellow%}%~%{$reset_color%}\
-		${hg_info}\
-		${git_info} \
-		%{$fg[white]%}[%*]
-		%{$magenta%}$ %{$reset_color%}"
+PROMPT="%{$purple%}#%{$reset_color%} \
+%{$bg[yellow]%}%{$cyan%}%n%{$reset_color%} \
+%{$fg[white]%}at \
+%{$green%}$(box_name) \
+%{$fg[white]%}in \
+%{$yellow%}%~%{$reset_color%}\
+${hg_info}\
+${git_info} \
+%{$fg[white]%}[%*]
+%{$magenta%}$ %{$reset_color%}"
 fi
