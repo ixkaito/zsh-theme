@@ -109,9 +109,9 @@ kite_git_status() {
     [[ "$is_behind" == true ]] && git_status="$kite_git_status_behind$git_status"
   fi
 
-  if [[ -n $git_status ]]; then
+  # if [[ -n $git_status ]]; then
 		echo "%{$fg[green]%}[$git_status] "
-  fi
+  # fi
 }
 
 # Node.js version
