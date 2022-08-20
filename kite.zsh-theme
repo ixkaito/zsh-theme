@@ -13,8 +13,8 @@ KITE_VCS_PROMPT_PREFIX2="%{$fg[cyan]%}"
 # KITE_VCS_PROMPT_CLEAN=" %{$fg[green]%}●"
 
 # Git info
-local git_info='$(git_prompt_info)'
-ZSH_THEME_GIT_PROMPT_PREFIX="${KITE_VCS_PROMPT_PREFIX1}${KITE_VCS_PROMPT_PREFIX2}"
+# local git_info='$(git_prompt_info)'
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[white]%}on %{$fg[cyan]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[magenta]%}●"
 ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg[green]%}●"
@@ -24,29 +24,22 @@ function box_name {
 	[ -f ~/.box-name ] && cat ~/.box-name || echo $HOST
 }
 
-# HG info
-local hg_info='$(kite_hg_prompt_info)'
-kite_hg_prompt_info() {
-	# make sure this is a hg dir
-	if [ -d '.hg' ]; then
-		echo -n "${KITE_VCS_PROMPT_PREFIX1}hg${KITE_VCS_PROMPT_PREFIX2}"
-		echo -n $(hg branch 2>/dev/null)
-		if [ -n "$(hg status 2>/dev/null)" ]; then
-			echo -n "$ZSH_THEME_GIT_PROMPT_DIRTY"
-		else
-			echo -n "$ZSH_THEME_GIT_PROMPT_CLEAN"
-		fi
-		echo -n "$ZSH_THEME_GIT_PROMPT_SUFFIX"
-	fi
-}
+node_info() {
+  # Show NODE status only for JS-specific folders
+  [[ -f package.json || -d node_modules || -n *.js(#qN^/) ]] || return
 
-local exit_code="%(?,,C:%{$fg[red]%}%?%{$reset_color%})"
+  local node_version=$(node -v 2>/dev/null)
+
+  [[ -z $node_version ]] && return
+
+	echo "%{$fg[green]%}⬢ ${node_version}"
+}
 
 # Prompt format: \n # USER at MACHINE in DIRECTORY on git:BRANCH STATE [TIME] \n $
 PROMPT="%{$fg[white]%} %{$fg[cyan]%}%n \
 %{$fg[white]%}at %{$fg[green]%}$(box_name) \
-%{$fg[white]%}in %{$fg[yellow]%}%~%{$reset_color%}\
-${hg_info}\
-${git_info} \
+%{$fg[white]%}in %{$fg[yellow]%}%~%{$reset_color%} \
+$(git_prompt_info) \
+$(node_info) \
 %{$fg[white]%}[%*]
 %{$fg[magenta]%}$ %{$reset_color%}"
