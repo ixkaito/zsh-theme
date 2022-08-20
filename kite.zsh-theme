@@ -1,5 +1,5 @@
 # Machine name
-box_name() {
+kite_box_name() {
 	[ -f ~/.box-name ] && cat ~/.box-name || echo $HOST
 }
 
@@ -10,7 +10,7 @@ ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[magenta]%}●"
 ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg[green]%}●"
 
 # Node.js version
-node_info() {
+kite_node_info() {
   # Show NODE status only for JS-specific folders
   [[ -f package.json || -d node_modules ]] || return
 
@@ -23,9 +23,9 @@ node_info() {
 
 # Prompt format: \n # USER at MACHINE in DIRECTORY on GIT_BRANCH STATE via NODE [TIME] \n $
 PROMPT="%{$fg[white]%} %{$fg[cyan]%}%n \
-%{$fg[white]%}at %{$fg[green]%}$(box_name) \
+%{$fg[white]%}at %{$fg[green]%}$(kite_box_name) \
 %{$fg[white]%}in %{$fg[yellow]%}%~%{$reset_color%} \
 $(git_prompt_info)\
-$(node_info)\
+$(kite_node_info)\
 %{$fg[white]%}[%*]
 %{$fg[magenta]%}$ %{$reset_color%}"
