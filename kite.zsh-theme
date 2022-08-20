@@ -118,7 +118,6 @@ PROMPT="
 %{$fg[white]%} %{$fg[cyan]%}%n \
 %{$fg[white]%}at %{$fg[green]%}$(kite_box_name) \
 %{$fg[white]%}in %{$fg[yellow]%}%~%{$reset_color%} \
-$(git_prompt_info)\
 $(kite_git_status)\
 $(kite_node_info)\
 %{$fg[white]%}[%*]
